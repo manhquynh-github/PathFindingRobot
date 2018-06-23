@@ -10,9 +10,9 @@ public:
 	Queue();
 	~Queue();
 
-	Node<T>* push(T info);
+	Node<T>* push(T data);
 	Node<T>* pop();
-	Node<T>* Search(T info) const;
+	Node<T>* Search(T data) const;
 	Node<T>* Front() const;
 	Node<T>* Last() const;
 	bool IsEmpty() const;
@@ -38,9 +38,9 @@ inline Queue<T>::~Queue()
 }
 
 template<class T>
-inline Node<T> * Queue<T>::push(T info)
+inline Node<T> * Queue<T>::push(T data)
 {
-	Node<T> *p = new Node<T>(info);
+	Node<T> *p = new Node<T>(data);
 	if (p)
 	{
 		if (!pHead)
@@ -72,11 +72,11 @@ inline Node<T> * Queue<T>::pop()
 }
 
 template<class T>
-inline Node<T>* Queue<T>::Search(T info) const
+inline Node<T>* Queue<T>::Search(T data) const
 {
-	if(!pHead || !info) return nullptr;
+	if(!pHead || !data) return nullptr;
 	Node<T> *p = pHead;
-	while (p && p->getInfo() != info)
+	while (p && p->getInfo() != data)
 		p = p->getpNext();
 
 	return p;

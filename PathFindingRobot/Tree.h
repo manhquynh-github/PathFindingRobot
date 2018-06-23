@@ -3,13 +3,13 @@ template <class T>
 class TreeNode
 {
 private:
-	T Info;
+	T Data;
 	TreeNode *Father;
 	TreeNode *Child;
 public:
 	TreeNode();
-	TreeNode(T info);
-	TreeNode(T info, TreeNode *father);
+	TreeNode(T data);
+	TreeNode(T data, TreeNode *father);
 	~TreeNode();
 
 	T getInfo() const;
@@ -20,21 +20,21 @@ public:
 template<class T>
 inline TreeNode<T>::TreeNode()
 {
-	Info = T();
+	Data = T();
 	Father = Child = nullptr;
 }
 
 template<class T>
-inline TreeNode<T>::TreeNode(T info)
+inline TreeNode<T>::TreeNode(T data)
 {
-	Info = info;
+	Data = data;
 	Father = Child = nullptr;
 }
 
 template<class T>
-inline TreeNode<T>::TreeNode(T info, TreeNode<T> * father)
+inline TreeNode<T>::TreeNode(T data, TreeNode<T> * father)
 {
-	Info = info;
+	Data = data;
 	Father = father;
 	Child = nullptr;
 }
@@ -47,13 +47,13 @@ inline TreeNode<T>::~TreeNode()
 	if (Father)
 		Father = nullptr;
 
-	Info.~T();
+	Data.~T();
 }
 
 template<class T>
 inline T TreeNode<T>::getInfo() const
 {
-	return Info;
+	return Data;
 }
 
 template<class T>

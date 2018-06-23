@@ -10,9 +10,9 @@ public:
 	SortedQueue();
 	~SortedQueue();
 
-	Node<T>* push(T info);
+	Node<T>* push(T data);
 	Node<T>* pop();
-	Node<T>* Search(T info) const;
+	Node<T>* Search(T data) const;
 	Node<T>* Front() const;
 	Node<T>* Min() const;
 	bool IsEmpty() const;
@@ -38,9 +38,9 @@ inline SortedQueue<T, CmpLess, CmpEqual>::~SortedQueue()
 }
 
 template<class T, typename CmpLess, typename CmpEqual>
-inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::push(T info)
+inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::push(T data)
 {
-	Node<T> *p = new Node<T>(info);
+	Node<T> *p = new Node<T>(data);
 	if (p)
 	{
 		if (!pHead)
@@ -49,13 +49,13 @@ inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::push(T info)
 		{
 			CmpLess less;
 			CmpEqual equal;
-			if (less(info, min->getInfo()) == true)
+			if (less(data, min->getInfo()) == true)
 			{
 				p->setpNext(pHead);
 				pHead = p;
 				min = pHead;
 			}
-			else if (equal(info, min->getInfo()) == true)
+			else if (equal(data, min->getInfo()) == true)
 			{
 				p->setpNext(min->getpNext());
 				min->setpNext(p);
@@ -64,7 +64,7 @@ inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::push(T info)
 			else
 			{
 				Node<T> *q = nullptr;
-				for (Node<T> *i = min; i && less(info, i->getInfo()) == false; q = i, i = i->getpNext());
+				for (Node<T> *i = min; i && less(data, i->getInfo()) == false; q = i, i = i->getpNext());
 				p->setpNext(q->getpNext());
 				q->setpNext(p);
 			}
@@ -95,11 +95,11 @@ inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::pop()
 }
 
 template<class T, typename CmpLess, typename CmpEqual>
-inline Node<T>* SortedQueue<T, CmpLess, CmpEqual>::Search(T info) const
+inline Node<T>* SortedQueue<T, CmpLess, CmpEqual>::Search(T data) const
 {
-	if (!pHead || !info) return T();
+	if (!pHead || !data) return T();
 	Node<T> *p = pHead;
-	while (p && p->getInfo() != info)
+	while (p && p->getInfo() != data)
 		p = p->getpNext();
 
 	return p;

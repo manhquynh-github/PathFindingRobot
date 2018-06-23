@@ -3,38 +3,38 @@ template <class T>
 class Node
 {
 private:
-	T Info;
+	T Data;
 	Node *pNext;
 public:
 	Node();
-	Node(T info);
-	Node(T info, Node* pnext);
+	Node(T data);
+	Node(T data, Node* pnext);
 	~Node();
 
 	Node* getpNext() const;
 	void setpNext(Node* pnext);
 	T getInfo() const;
-	void setInfo(T info);
+	void setInfo(T data);
 };
 
 template<class T>
 inline Node<T>::Node()
 {
-	Info = T();
+	Data = T();
 	pNext = nullptr;
 }
 
 template<class T>
-inline Node<T>::Node(T info)
+inline Node<T>::Node(T data)
 {
-	Info = info;
+	Data = data;
 	pNext = nullptr;
 }
 
 template<class T>
-inline Node<T>::Node(T info, Node * pnext)
+inline Node<T>::Node(T data, Node * pnext)
 {
-	Info = info;
+	Data = data;
 	pNext = pnext;
 }
 
@@ -42,7 +42,7 @@ template<class T>
 inline Node<T>::~Node()
 {
 	if (pNext) pNext = nullptr;
-	Info.~T();
+	Data.~T();
 }
 
 template<class T>
@@ -60,11 +60,11 @@ inline void Node<T>::setpNext(Node<T> * pnext)
 template<class T>
 inline T Node<T>::getInfo() const
 {
-	return Info;
+	return Data;
 }
 
 template<class T>
-inline void Node<T>::setInfo(T info)
+inline void Node<T>::setInfo(T data)
 {
-	Info = info;
+	Data = data;
 }
