@@ -21,14 +21,14 @@ template<class T>
 inline TreeNode<T>::TreeNode()
 {
 	Info = T();
-	Father = Child = NULL;
+	Father = Child = nullptr;
 }
 
 template<class T>
 inline TreeNode<T>::TreeNode(T info)
 {
 	Info = info;
-	Father = Child = NULL;
+	Father = Child = nullptr;
 }
 
 template<class T>
@@ -36,16 +36,16 @@ inline TreeNode<T>::TreeNode(T info, TreeNode<T> * father)
 {
 	Info = info;
 	Father = father;
-	Child = NULL;
+	Child = nullptr;
 }
 
 template<class T>
 inline TreeNode<T>::~TreeNode()
 {
 	if (Child)
-		Child = NULL;
+		Child = nullptr;
 	if (Father)
-		Father = NULL;
+		Father = nullptr;
 
 	Info.~T();
 }

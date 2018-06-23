@@ -10,25 +10,25 @@ int AIAStar::CalculateHCost(Tile * t)
 
 Tile* AIAStar::MoveUp(Tile *t) const
 {
-	if (!t || t->y == 0 || Map[t->x][t->y - 1].Type == (char)254u) return NULL;
+	if (!t || t->y == 0 || Map[t->x][t->y - 1].Type == (char)254u) return nullptr;
 	return &Map[t->x][t->y - 1];
 }
 
 Tile* AIAStar::MoveDown(Tile *t) const
 {
-	if (!t || t->y == Height - 1 || Map[t->x][t->y + 1].Type == (char)254u) return NULL;
+	if (!t || t->y == Height - 1 || Map[t->x][t->y + 1].Type == (char)254u) return nullptr;
 	return &Map[t->x][t->y + 1];
 }
 
 Tile* AIAStar::MoveLeft(Tile *t) const
 {
-	if (!t || t->x == 0 || Map[t->x - 1][t->y].Type == (char)254u) return NULL;
+	if (!t || t->x == 0 || Map[t->x - 1][t->y].Type == (char)254u) return nullptr;
 	return &Map[t->x - 1][t->y];
 }
 
 Tile* AIAStar::MoveRight(Tile *t) const
 {
-	if (!t || t->x == Width - 1 || Map[t->x + 1][t->y].Type == (char)254u) return NULL;
+	if (!t || t->x == Width - 1 || Map[t->x + 1][t->y].Type == (char)254u) return nullptr;
 	return &Map[t->x + 1][t->y];
 }
 
@@ -49,7 +49,7 @@ bool AIAStar::Search()
 {
 	Tile* TileCollection[4];
 	bool found = false;
-	AINode *T = new AINode(NULL, Start, CalculateHCost(Start));
+	AINode *T = new AINode(nullptr, Start, CalculateHCost(Start));
 	SortedQueue<AINode*, LessAINode, EqualAINode> Q;
 	Q.push(T);
 

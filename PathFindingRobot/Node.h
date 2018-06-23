@@ -21,14 +21,14 @@ template<class T>
 inline Node<T>::Node()
 {
 	Info = T();
-	pNext = NULL;
+	pNext = nullptr;
 }
 
 template<class T>
 inline Node<T>::Node(T info)
 {
 	Info = info;
-	pNext = NULL;
+	pNext = nullptr;
 }
 
 template<class T>
@@ -41,7 +41,7 @@ inline Node<T>::Node(T info, Node * pnext)
 template<class T>
 inline Node<T>::~Node()
 {
-	if (pNext) pNext = NULL;
+	if (pNext) pNext = nullptr;
 	Info.~T();
 }
 

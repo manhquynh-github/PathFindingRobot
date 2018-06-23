@@ -5,36 +5,36 @@ using namespace std;
 
 Tile* AI::MoveUp(Tile *t) const
 {
-	if (!t || t->y == 0 || Map[t->x][t->y - 1].Type == (char)254u) return NULL;
+	if (!t || t->y == 0 || Map[t->x][t->y - 1].Type == (char)254u) return nullptr;
 	return &Map[t->x][t->y - 1];
 }
 
 Tile* AI::MoveDown(Tile *t) const
 {
-	if (!t || t->y == Height - 1 || Map[t->x][t->y + 1].Type == (char)254u) return NULL;
+	if (!t || t->y == Height - 1 || Map[t->x][t->y + 1].Type == (char)254u) return nullptr;
 	return &Map[t->x][t->y + 1];
 }
 
 Tile* AI::MoveLeft(Tile *t) const
 {
-	if (!t || t->x == 0 || Map[t->x - 1][t->y].Type == (char)254u) return NULL;
+	if (!t || t->x == 0 || Map[t->x - 1][t->y].Type == (char)254u) return nullptr;
 	return &Map[t->x - 1][t->y];
 }
 
 Tile* AI::MoveRight(Tile *t) const
 {
-	if (!t || t->x == Width - 1 || Map[t->x + 1][t->y].Type == (char)254u) return NULL;
+	if (!t || t->x == Width - 1 || Map[t->x + 1][t->y].Type == (char)254u) return nullptr;
 	return &Map[t->x + 1][t->y];
 }
 
 Tile * AI::Search(const Queue<TreeNode<Tile*>*> &Q, Tile * x) const
 {
-	if (!Q.Front() || !x) return NULL;
+	if (!Q.Front() || !x) return nullptr;
 	Node<TreeNode<Tile*>*> *p = Q.Front();
 	while (p && p->getInfo()->getInfo() != x)
 		p = p->getpNext();
 
-	if (!p) return NULL;
+	if (!p) return nullptr;
 	return p->getInfo()->getInfo();
 }
 

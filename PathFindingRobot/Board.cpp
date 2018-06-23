@@ -4,8 +4,8 @@ using namespace std;
 
 Board::Board()
 {
-	Map = NULL;
-	Start = End = NULL;
+	Map = nullptr;
+	Start = End = nullptr;
 	Height = Width = Wall = 0;
 }
 
@@ -46,7 +46,7 @@ void Board::Generate()
 	if (Height == 0 || Width == 0)
 		return;
 
-	srand((unsigned int)time(NULL));
+	srand((unsigned int)time(nullptr));
 	if (Wall >= Height * Width)
 		Wall = Height * Width - 2;
 
@@ -198,8 +198,8 @@ Board::~Board()
 		delete[] Map[i];
 	delete[] Map;
 
-	if (Start) Start = NULL;
-	if (End) End = NULL;
+	if (Start) Start = nullptr;
+	if (End) End = nullptr;
 }
 
 std::ostream & operator<<(std::ostream & out, const Board & B)

@@ -21,7 +21,7 @@ public:
 template<class T, typename CmpLess, typename CmpEqual>
 inline SortedQueue<T, CmpLess, CmpEqual>::SortedQueue()
 {
-	pHead = min = NULL;
+	pHead = min = nullptr;
 }
 
 template<class T, typename CmpLess, typename CmpEqual>
@@ -31,10 +31,10 @@ inline SortedQueue<T, CmpLess, CmpEqual>::~SortedQueue()
 	{
 		Node<T> *p = pop();
 		p->~Node<T>();
-		p = NULL;
+		p = nullptr;
 	}
 	
-	if (min) min = NULL;
+	if (min) min = nullptr;
 }
 
 template<class T, typename CmpLess, typename CmpEqual>
@@ -63,7 +63,7 @@ inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::push(T info)
 			}
 			else
 			{
-				Node<T> *q = NULL;
+				Node<T> *q = nullptr;
 				for (Node<T> *i = min; i && less(info, i->getInfo()) == false; q = i, i = i->getpNext());
 				p->setpNext(q->getpNext());
 				q->setpNext(p);
@@ -76,7 +76,7 @@ inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::push(T info)
 template<class T, typename CmpLess, typename CmpEqual>
 inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::pop()
 {
-	if (!pHead) return NULL;
+	if (!pHead) return nullptr;
 
 	Node<T> *p = pHead;
 
@@ -84,11 +84,11 @@ inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::pop()
 		min = pHead->getpNext();
 
 	if (!pHead->getpNext())
-		pHead = NULL;
+		pHead = nullptr;
 	else
 	{
 		pHead = pHead->getpNext();
-		p->setpNext(NULL);
+		p->setpNext(nullptr);
 	}
 
 	return p;
@@ -120,5 +120,5 @@ inline Node<T>* SortedQueue<T, CmpLess, CmpEqual>::Min() const
 template<class T, typename CmpLess, typename CmpEqual>
 inline bool SortedQueue<T, CmpLess, CmpEqual>::IsEmpty() const
 {
-	return (pHead == NULL);
+	return (pHead == nullptr);
 }

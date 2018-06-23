@@ -21,7 +21,7 @@ public:
 template<class T>
 inline Queue<T>::Queue()
 {
-	pHead = pTail = NULL;
+	pHead = pTail = nullptr;
 }
 
 template<class T>
@@ -31,10 +31,10 @@ inline Queue<T>::~Queue()
 	{
 		Node<T> *p = pop();
 		p->~Node<T>();
-		p = NULL;
+		p = nullptr;
 	}
 
-	if (pTail) pTail = NULL;
+	if (pTail) pTail = nullptr;
 }
 
 template<class T>
@@ -57,15 +57,15 @@ inline Node<T> * Queue<T>::push(T info)
 template<class T>
 inline Node<T> * Queue<T>::pop()
 {
-	if (!pHead) return NULL;
+	if (!pHead) return nullptr;
 	
 	Node<T> *p = pHead;
 	if (pHead == pTail)
-		pHead = pTail = NULL;
+		pHead = pTail = nullptr;
 	else
 	{
 		pHead = pHead->getpNext();
-		p->setpNext(NULL);
+		p->setpNext(nullptr);
 	}
 
 	return p;
@@ -74,7 +74,7 @@ inline Node<T> * Queue<T>::pop()
 template<class T>
 inline Node<T>* Queue<T>::Search(T info) const
 {
-	if(!pHead || !info) return NULL;
+	if(!pHead || !info) return nullptr;
 	Node<T> *p = pHead;
 	while (p && p->getInfo() != info)
 		p = p->getpNext();
@@ -97,5 +97,5 @@ inline Node<T>* Queue<T>::Last() const
 template<class T>
 inline bool Queue<T>::IsEmpty() const
 {
-	return (pHead == NULL);
+	return (pHead == nullptr);
 }
