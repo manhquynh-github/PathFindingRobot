@@ -7,14 +7,14 @@ private:
 	Node *pNext;
 public:
 	Node();
-	Node(T data);
-	Node(T data, Node* pnext);
+	Node(const T &data);
+	Node(const T &data, Node* pnext);
 	~Node();
 
 	Node* getpNext() const;
 	void setpNext(Node* pnext);
 	T getInfo() const;
-	void setInfo(T data);
+	void setInfo(const T &data);
 };
 
 template<class T>
@@ -25,14 +25,14 @@ inline Node<T>::Node()
 }
 
 template<class T>
-inline Node<T>::Node(T data)
+inline Node<T>::Node(const T &data)
 {
 	Data = data;
 	pNext = nullptr;
 }
 
 template<class T>
-inline Node<T>::Node(T data, Node * pnext)
+inline Node<T>::Node(const T &data, Node * pnext)
 {
 	Data = data;
 	pNext = pnext;
@@ -64,7 +64,7 @@ inline T Node<T>::getInfo() const
 }
 
 template<class T>
-inline void Node<T>::setInfo(T data)
+inline void Node<T>::setInfo(const T &data)
 {
 	Data = data;
 }

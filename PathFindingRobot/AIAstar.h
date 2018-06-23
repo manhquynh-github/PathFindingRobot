@@ -27,6 +27,12 @@ private:
 
 			if (tile->Type != 'S') tile->Type = '+';
 		}
+
+		~AINode()
+		{
+			cameFrom = nullptr;
+			tile = nullptr;
+		}
 	};
 
 	struct LessAINode

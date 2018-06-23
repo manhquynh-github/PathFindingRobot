@@ -8,8 +8,8 @@ private:
 	TreeNode *Child;
 public:
 	TreeNode();
-	TreeNode(T data);
-	TreeNode(T data, TreeNode *father);
+	TreeNode(const T &data);
+	TreeNode(const T &data, TreeNode *father);
 	~TreeNode();
 
 	T getInfo() const;
@@ -25,14 +25,14 @@ inline TreeNode<T>::TreeNode()
 }
 
 template<class T>
-inline TreeNode<T>::TreeNode(T data)
+inline TreeNode<T>::TreeNode(const T &data)
 {
 	Data = data;
 	Father = Child = nullptr;
 }
 
 template<class T>
-inline TreeNode<T>::TreeNode(T data, TreeNode<T> * father)
+inline TreeNode<T>::TreeNode(const T &data, TreeNode<T> * father)
 {
 	Data = data;
 	Father = father;

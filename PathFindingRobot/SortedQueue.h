@@ -10,9 +10,9 @@ public:
 	SortedQueue();
 	~SortedQueue();
 
-	Node<T>* push(T data);
+	Node<T>* push(const T &data);
 	Node<T>* pop();
-	Node<T>* Search(T data) const;
+	Node<T>* Search(const T &data) const;
 	Node<T>* Front() const;
 	Node<T>* Min() const;
 	bool IsEmpty() const;
@@ -38,7 +38,7 @@ inline SortedQueue<T, CmpLess, CmpEqual>::~SortedQueue()
 }
 
 template<class T, typename CmpLess, typename CmpEqual>
-inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::push(T data)
+inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::push(const T &data)
 {
 	Node<T> *p = new Node<T>(data);
 	if (p)
@@ -95,7 +95,7 @@ inline Node<T> * SortedQueue<T, CmpLess, CmpEqual>::pop()
 }
 
 template<class T, typename CmpLess, typename CmpEqual>
-inline Node<T>* SortedQueue<T, CmpLess, CmpEqual>::Search(T data) const
+inline Node<T>* SortedQueue<T, CmpLess, CmpEqual>::Search(const T &data) const
 {
 	if (!pHead || !data) return T();
 	Node<T> *p = pHead;
