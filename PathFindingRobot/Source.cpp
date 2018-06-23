@@ -18,25 +18,26 @@ void main()
 		{
 			cout << "Height: "; cin >> height;
 			cout << "Width: "; cin >> width;
+
+			if (width <= 1 || height <= 1)
+			{
+				cout << "Invalid map.";
+				continue;
+			}
+
 			cout << "Walls: "; cin >> wall;
 			cout << "Distance: "; cin >> distance;
 			cout << "Draw board (1/0)? "; cin >> ans;
-			//if (height != B.getHeight() && width != B.getWidth())
-				B = C = Board(height, width, wall, distance);
-			//else
-			//{
-			//	B.Clear();
-			//	B.Generate();
-			//	C = B;
-			//}
+			B = Board(height, width, wall, distance);
 		}
 		else
 		{
 			B.Clear();
 			B.Generate();
-			C = B;
 		}
 
+		C = B;
+		
 		if (ans == 1) cout << B << endl << endl;
 
 		AIAStar AA(B);
